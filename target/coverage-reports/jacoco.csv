@@ -1,0 +1,8 @@
+GROUP,PACKAGE,CLASS,INSTRUCTION_MISSED,INSTRUCTION_COVERED,BRANCH_MISSED,BRANCH_COVERED,LINE_MISSED,LINE_COVERED,COMPLEXITY_MISSED,COMPLEXITY_COVERED,METHOD_MISSED,METHOD_COVERED
+mercadolibre,com.mercadolibre.domain.service.model.response,ResponseMutantDTO,0,36,0,0,0,6,0,8,0,8
+mercadolibre,com.mercadolibre.adapter.router.controller,MutantRestController,0,32,0,0,0,6,0,4,0,4
+mercadolibre,com.mercadolibre,MagnetoServiceHandler,63,0,0,0,21,0,3,0,3,0
+mercadolibre,com.mercadolibre,AppUnifiedXmenMagneto,5,3,0,0,2,1,1,1,1,1
+mercadolibre,com.mercadolibre.domain.service.model,MutantService,111,407,23,37,26,91,19,21,1,9
+mercadolibre,com.mercadolibre.adapter.router.error.handler,ResponseErrorDTO,0,26,0,0,0,5,0,6,0,6
+mercadolibre,com.mercadolibre.domain.service.model.request,MutantDTO,0,16,0,0,0,4,0,4,0,4

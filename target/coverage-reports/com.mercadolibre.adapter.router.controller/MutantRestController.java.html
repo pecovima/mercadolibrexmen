@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MutantRestController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">mercadolibre</a> &gt; <a href="index.source.html" class="el_package">com.mercadolibre.adapter.router.controller</a> &gt; <span class="el_source">MutantRestController.java</span></div><h1>MutantRestController.java</h1><pre class="source lang-java linenums">package com.mercadolibre.adapter.router.controller;
+
+import com.mercadolibre.adapter.router.error.handler.ResponseErrorDTO;
+import com.mercadolibre.adapter.router.facade.MutantFacade;
+import com.mercadolibre.domain.service.model.request.MutantDTO;
+import com.mercadolibre.domain.service.model.response.ResponseMutantDTO;
+import io.swagger.annotations.*;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.Date;
+
+import static com.mercadolibre.adapter.router.RouterConsts.*;
+import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
+
+@CrossOrigin(CROSS_ORIGIN)
+@RestController
+@RequestMapping(path = CONTROLLER_PATH)
+@Api(tags = API)
+<span class="fc" id="L23">public class MutantRestController {</span>
+
+    @Autowired
+    MutantFacade mutantFacade;
+
+    @GetMapping(MAPPING_STATUS)
+    public ResponseEntity&lt;String&gt; statusService(){
+<span class="fc" id="L30">        String status = String.format(MESSAGE_STATUS, new Date());</span>
+<span class="fc" id="L31">        return new ResponseEntity&lt;&gt;(status, HttpStatus.OK);</span>
+    }
+
+    @PostMapping(value = MAPPING_POST_MUTANT,produces = APPLICATION_JSON_VALUE)
+    @ApiOperation(value = API_OPERATION_MUTANT, notes = NOTE_API_OPERATION_POST_MUTANT)
+    @ApiResponses(value = {@ApiResponse(code = 200, message = API_RESPONSE_COD_200, response = ResponseMutantDTO.class),
+            @ApiResponse(code = 400, message = API_RESPONSE_COD_400, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 404, message = API_RESPONSE_COD_404, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 422, message = API_RESPONSE_COD_422, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 500, message = API_RESPONSE_COD_500, response = ResponseErrorDTO.class)})
+    public ResponseEntity&lt;Object&gt; isMutant(
+            @ApiParam(value = API_PARAM_REQUEST_MS, required = true) @RequestBody(required = true) MutantDTO requestMs){
+<span class="fc" id="L43">        System.out.println(&quot;Post&quot;);</span>
+<span class="fc" id="L44">        return mutantFacade.isMutant(requestMs);</span>
+    }
+
+    @GetMapping(value = MAPPING_GET_MUTANT, produces = APPLICATION_JSON_VALUE)
+    @ApiOperation(value = API_OPERATION_MUTANT_GET, notes = NOTE_API_OPERATION_GET_MUTANT)
+    @ApiResponses(value = {@ApiResponse(code = 200, message = API_RESPONSE_COD_200, response = ResponseMutantDTO.class),
+            @ApiResponse(code = 400, message = API_RESPONSE_COD_400, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 404, message = API_RESPONSE_COD_404, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 422, message = API_RESPONSE_COD_422, response = ResponseErrorDTO.class),
+            @ApiResponse(code = 500, message = API_RESPONSE_COD_500, response = ResponseErrorDTO.class)})
+    public ResponseEntity&lt;Object&gt; stats() {
+<span class="fc" id="L55">        return mutantFacade.stats();</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.4.201905082037</span></div></body></html>
