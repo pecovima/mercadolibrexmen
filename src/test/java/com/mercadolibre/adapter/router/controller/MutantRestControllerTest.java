@@ -46,13 +46,13 @@ public class MutantRestControllerTest {
                 .andExpect(status().isOk()).andReturn();
     }
 
-   /* @Test
+    @Test
     public void isMutantTest() throws Exception {
         String urlService = CONTROLLER_PATH.concat(MAPPING_POST_MUTANT);
         mockMvc.perform(post(urlService).contentType(MediaType.APPLICATION_JSON)
                 .content(gson.toJson(new MutantDTO())))
                 .andExpect(status().isOk()).andReturn();
-    }*/
+    }
 
 
     @Test

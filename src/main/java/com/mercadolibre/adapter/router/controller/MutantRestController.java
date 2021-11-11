@@ -39,11 +39,9 @@ public class MutantRestController {
             @ApiResponse(code = 422, message = API_RESPONSE_COD_422, response = ResponseErrorDTO.class),
             @ApiResponse(code = 500, message = API_RESPONSE_COD_500, response = ResponseErrorDTO.class)})
     public ResponseEntity<Object> isMutant(
-            @ApiParam(value = API_PARAM_REQUEST_MS, required = true) @RequestBody(required = true) String requestMs){
-        System.out.println("PostVictor"+requestMs);
+            @ApiParam(value = API_PARAM_REQUEST_MS, required = true) @RequestBody(required = true) MutantDTO requestMs){
 
-        return  new ResponseEntity<>("Victor", HttpStatus.OK);
-        //return mutantFacade.isMutant(requestMs);
+        return mutantFacade.isMutant(requestMs);
     }
 
     @GetMapping(value = MAPPING_GET_MUTANT, produces = APPLICATION_JSON_VALUE)
