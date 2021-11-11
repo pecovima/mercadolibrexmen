@@ -30,13 +30,13 @@ public class ErrorHandlerTest {
         request = Mockito.mock(WebRequest.class);
     }
 
-    @Test
-    public void handleMethodArgumentNotValidTest() throws NoSuchMethodException{
+  /*  @Test
+    public void () throws NoSuchMethodException{
         MethodArgumentNotValidException methodArgumentNotValidException = new MethodArgumentNotValidException(
                 new MethodParameter(MutantRestController.class.getMethod("isMutant", MutantDTO.class),-1),
                 dataBinder.getBindingResult());
         assertNotNull(errorHandler.handleMethodArgumentNotValid(methodArgumentNotValidException,new HttpHeaders(), HttpStatus.BAD_GATEWAY,request));
-    }
+    }*/
 
 
 }

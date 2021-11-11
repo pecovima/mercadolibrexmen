@@ -1,6 +1,7 @@
 package com.mercadolibre;
 
 import com.amazonaws.serverless.exceptions.ContainerInitializationException;
+import com.amazonaws.serverless.proxy.internal.LambdaContainerHandler;
 import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
 import com.amazonaws.serverless.proxy.spring.SpringBootLambdaContainerHandler;
@@ -25,6 +26,8 @@ public class MagnetoServiceHandler implements RequestStreamHandler {
             //handler = SpringBootLambdaContainerHandler.getAwsProxyHandler(AppUnifiedXmenMagneto.class);
 
             long startTime = Instant.now().toEpochMilli();
+
+            LambdaContainerHandler.getContainerConfig().setInitializationTimeout(60_000);
              handler = new SpringBootProxyHandlerBuilder()
                                 .defaultProxy()
                                 .asyncInit(startTime)
